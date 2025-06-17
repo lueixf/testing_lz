@@ -1,11 +1,7 @@
-from testing import func
+from testing import heand
 import unittest
 
-
-
-result =func(1,"",3,2,4)
-   
-
+result = heand(1,3,2)
 """
 1. 2 положительных одинаковых числа в знаменателе +
 2. все нули +
@@ -21,29 +17,28 @@ result =func(1,"",3,2,4)
 class Test_func(unittest.TestCase):
 
     def test_division_by_zerors(self):
-        self.assertEqual(func(1,2,2),'Деление на ноль')
-        self.assertEqual(func(1,-2,-2),'Деление на ноль')
+        self.assertEqual(heand(1,2,2),'Деление на ноль')
+        self.assertEqual(heand(1,-2,-2),'Деление на ноль')
     
     def test_all_zero(self):
-        self.assertEqual(func(0,0,0),'Деление на ноль')
+        self.assertEqual(heand(0,0,0),'Деление на ноль')
 
     def test_dif_num(self):
-        self.assertEqual(func(1,2,-2),0.4431471805599453) 
+        self.assertEqual(heand(1,2,-2),0.4431471805599453) 
 
-    def test_neg_Cb_under_the_root(self):
-        self.assertEqual(func(1,-3,-1), 'Извлечение корня из отрицательного числа')
-    
-    def test_pos_Cb_under_the_root(self):
-        self.assertEqual(func(1,2,8), 'Извлечение корня из отрицательного числа')
+    def test_Cb_under_the_root(self):
+        self.assertEqual(heand(1,-3,-1), 'Извлечение корня из отрицательного числа')
+        self.assertEqual(heand(1,2,8), 'Извлечение корня из отрицательного числа')
 
     def test_neg_pos__under_the_root(self):
-        self.assertEqual(func(1,), 'Извлечение корня из отрицательного числа')
+        self.assertEqual(heand(1,-1,3), 'Извлечение корня из отрицательного числа')
+        self.assertEqual(heand(1,2,-3), 0.6047189562170503)
     
     def test_str(self):
-        self.assertEqual(func("a",0,1),'Ошибка типов данных')
+        self.assertEqual(heand("a",0,1),'Ошибка типов данных')
 
     def test_zero_input(self):
-        self.assertEqual(func("",0,3),'Ошибка типов данных')
+        self.assertEqual(heand("",0,3),'Ошибка типов данных')
 
 if __name__ == "__main__":
     unittest.main() 

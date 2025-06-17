@@ -1,7 +1,7 @@
 import math
 
 def func(a,b,c):
-    return a/(c-b) + math.log(a*math.sqrt(b-c))
+    return a/(c-b) + math.log(a * math.sqrt(b-c))
 
 def heand(a,b,c):
     try:
@@ -21,7 +21,7 @@ def heand(a,b,c):
         result = f"Тип ошибки: {e}"
     return result
 
-heand(1,2,8)
+heand(1,2,1)
 
 ''' 1- три положительных одинаковых +
     2- три отрицательных одинаковых +
@@ -37,19 +37,3 @@ heand(1,2,8)
     12- дробные и целые +
     13- str +
 '''
-
-'''def test_eq_int():
-    assert func(1,1,1) == 'Деление на ноль'
-    assert func(0,0,0) == 'Деление на ноль'
-    assert func(-1,-1,-1) == 'Деление на ноль'
-
-def test_pos_zero():
-    assert func(1,2,0) == -0.1534264097200273
-
-def test_neg_zero():
-    assert func(-1,-2,0) == 'Извлечение корня из отрицательного числа'
-
-
-def test_float_int():
-    assert func()'''
-    
