@@ -1,39 +1,44 @@
-import math
+from program import heand
+import unittest
 
-def func(a,b,c):
-    return a/(c-b) + math.log(a * math.sqrt(b-c))
+heand(8,4,1)
+"""
+1. 2 положительных одинаковых числа в знаменателе +
+2. все нули +
+3. 2 отрицательных одинаковых числа в знаменателе +
+4. разные числа в знаменателе +
+5. отрицательное число под корнем +
+6. текст +
+7. пустой ввод +
 
-def heand(a,b,c):
-    try:
-        result = func(a,b,c)
-        print(result)
-    except(ZeroDivisionError):
-        print('Деление на ноль')
-        result = 'Деление на ноль'
-    except(TypeError):
-        print('Ошибка типов данных')
-        result = 'Ошибка типов данных'
-    except(ValueError):
-        print('Извлечение корня из отрицательного числа')
-        result = 'Извлечение корня из отрицательного числа'
-    except Exception as e:
-        print(f"Тип ошибки: {e}")
-        result = f"Тип ошибки: {e}"
-    return result
+"""
 
-heand(1,2,1)
 
-''' 1- три положительных одинаковых +
-    2- три отрицательных одинаковых +
-    3- три положительных разных +
-    4- три отрицательных разных +
-    5- два положительных одно отриц +
-    6- два отриц одно положит +
-    7- два положит один нуль +
-    8- два отриц один нуль +
-    9- три нуля +
-    10- пустой ввод +
-    11- разные типы данных +
-    12- дробные и целые +
-    13- str +
-'''
+class Test_func(unittest.TestCase):
+
+    def test_division_by_zerors(self):
+        self.assertEqual(heand(1,2,2),'Деление на ноль')
+        self.assertEqual(heand(1,-2,-2),'Деление на ноль')
+    
+    def test_all_zero(self):
+        self.assertEqual(heand(0,0,0),'Деление на ноль')
+
+    def test_dif_num(self):
+        self.assertEqual(heand(1,2,-2),0.4431471805599453) 
+
+    def test_Cb_under_the_root(self):
+        self.assertEqual(heand(1,-3,-1), 'Извлечение корня из отрицательного числа')
+        self.assertEqual(heand(1,2,8), 'Извлечение корня из отрицательного числа')
+
+    def test_neg_pos__under_the_root(self):
+        self.assertEqual(heand(1,-1,3), 'Извлечение корня из отрицательного числа')
+        self.assertEqual(heand(1,2,-3), 0.6047189562170503)
+    
+    def test_str(self):
+        self.assertEqual(heand("a",0,1),'Ошибка типов данных')
+
+    def test_zero_input(self):
+        self.assertEqual(heand("",0,3),'Ошибка типов данных')
+
+if __name__ == "__main__":
+    unittest.main() 
